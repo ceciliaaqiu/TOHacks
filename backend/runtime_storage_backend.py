@@ -67,5 +67,10 @@ def create_user():
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+    # requires port forwarding to local port 5000
+    #   app.run(host="0.0.0.0")
+    # users connect through [ip]:5000
