@@ -1,15 +1,53 @@
+import 'react-native-gesture-handler';
+import { useState } from "react";
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Intro"
+        component={IntroScreen}
+        options={{ 
+          headerTitle: 'Welcome',
+            textAlign: 'center',
+            alignSelf: 'center',
+            headerStyle:{ 
+              backgroundColor: '#cabdac'
+            }
+          , 
+          headerTintColor: '#abb97c',
+          headerTitleStyle: {
+            fontFamily: "sans-serif-light",
+            fontWeight: 'bold'
+          }
+        }}
+      />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+    </Stack.Navigator>
+  </NavigationContainer>);
+};
+
+const Stack = createStackNavigator();
+
+const IntroScreen = ({ navigation }) => {
+  return (
+    <Button
+      title="Go to homescreen"
+      onPress={() =>
+        navigation.navigate('Profile', { name: 'Jane' })
+      }
+    />
   );
-}
+};
+const ProfileScreen = ({ navigation, route }) => {
+  return <Text>This is {route.params.name}'s profile</Text>;
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+
+export default App;
