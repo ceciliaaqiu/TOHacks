@@ -6,6 +6,8 @@ import os
 app = Flask(__name__)
 
 storage_file = open("data.json", "r+")
+
+# checks if data.json is empty or not
 if os.stat("data.json").st_size == 0:
     users = []
 else:
@@ -14,6 +16,9 @@ else:
 
 @app.route('/api/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
+    '''
+    this is O(n) but should be fast enough
+    '''
     user = [user for user in users if user['id'] == user_id]
     if len(user) == 0:
         abort(404)
@@ -23,6 +28,9 @@ def get_user(user_id):
 # returns all users in json format
 @app.route('/api/users', methods=['GET'])
 def get_users():
+    '''
+    hide this from users?
+    '''
     return jsonify({'users': users})
 
 
@@ -32,6 +40,8 @@ def create_user():
         makes a new user
         eg using command line 64bit Win:
             curl -H "Content-Type: application/json" -X POST -d "{\"first\":\"John\", \"last\":\"Doe\"}" http://localhost:5000/api/users
+
+        Win10 64bit needs a '\' after " within the {}
     '''
     if not request.json or not 'first' in request.json:
         abort(400)
@@ -56,7 +66,6 @@ def create_user():
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
