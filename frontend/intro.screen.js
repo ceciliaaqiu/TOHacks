@@ -6,7 +6,7 @@ const IntroScreen = ({ navigation }) => {
       <Button
         title="Go to homescreen"
         onPress={() =>
-          navigation.navigate('Profile', { name: 'Jane' })
+          navigation.navigate('Home', { name: 'Home' })
         }
       />
     );
