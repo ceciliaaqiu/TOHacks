@@ -1,10 +1,15 @@
 from flask import Flask, jsonify, make_response, request, abort
 from datetime import datetime
+import json
+import os
 
 app = Flask(__name__)
 
-# runtime storage
-users = []
+storage_file = open("data.json", "r+")
+if os.stat("data.json").st_size == 0:
+    users = []
+else:
+    users = json.load(storage_file)
 
 
 @app.route('/api/users/<int:user_id>', methods=['GET'])
@@ -31,17 +36,20 @@ def create_user():
     if not request.json or not 'first' in request.json:
         abort(400)
 
-
     user = {
         'first': request.json['first'],
         'last': request.json['last'],
-        'date_joined': datetime.utcnow(),
+        'date_joined': str(datetime.utcnow()),
     }
     if users:
         user['id'] = users[-1]['id'] + 1
     else:
         user['id'] = 0
     users.append(user)
+
+    with open("data.json", "w") as write_file:
+        json.dump(users, write_file, indent=4)
+
     return jsonify({'user': user}), 201
 
 
