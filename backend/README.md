@@ -45,7 +45,7 @@ print(put("http://localhost:5000/api/users/[user_id]", data={[key]:[value], ...}
 curl -X GET http://localhost:5000/api/users
 ```
 #### Python:
-``` 
+```python
 from requests import get
 print(get("http://localhost:5000/api/users"))
 ```
