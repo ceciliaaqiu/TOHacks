@@ -1,4 +1,4 @@
-This is a simple REST api for storing and retrieving user data.
+This is a simple REST API for storing and retrieving user data.
 
 # Usage
 
