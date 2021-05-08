@@ -47,5 +47,6 @@ curl -X GET http://localhost:5000/api/users
 #### Python:
 ```python
 from requests import get
+
 print(get("http://localhost:5000/api/users"))
 ```
