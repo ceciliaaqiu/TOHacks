@@ -8,7 +8,7 @@ users = []
 
 
 @app.route('/api/users/<int:user_id>', methods=['GET'])
-def get_task(user_id):
+def get_user(user_id):
     user = [user for user in users if user['id'] == user_id]
     if len(user) == 0:
         abort(404)
@@ -35,7 +35,7 @@ def create_user():
     user = {
         'first': request.json['first'],
         'last': request.json['last'],
-        'date_joined': datetime.utcnow()
+        'date_joined': datetime.utcnow(),
     }
     if users:
         user['id'] = users[-1]['id'] + 1
