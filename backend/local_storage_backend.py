@@ -91,11 +91,12 @@ def update_user(user_id):
     user[0]['title'] = request.json.get('title', user[0]['title'])
     user[0]['description'] = request.json.get('description', user[0]['description'])
     user[0]['done'] = request.json.get('done', user[0]['done'])
+    json.dump(users, storage_file, indent=4)
     return jsonify({'task': user[0]})
 
 
 @app.route('/api/users/<int:user_id>', methods=['DELETE'])
-def delete_task(user_id):
+def delete_user(user_id):
     '''
         deletes a current user
         eg using command line 64bit Win:
@@ -106,7 +107,8 @@ def delete_task(user_id):
     user = [user for user in users if user['id'] == user_id]
     if len(user) == 0:
         abort(404)
-    user.remove(user[0])
+    users.remove(user[0])
+    json.dump(users, storage_file, indent=4)
     return jsonify({'result': True})
 
 
