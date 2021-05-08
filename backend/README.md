@@ -30,7 +30,7 @@ print(delete("http://localhost:5000/api/users/[user_id]")
 ## Updating a user:
 #### Curl:
 ```
-curl -H "Content-Type: application/json" -X PUT -d "{[key]:[value]}" http://localhost:5000/api/users/[user_id]
+curl -H "Content-Type: application/json" -X PUT -d "{[key]:[value], ...}" http://localhost:5000/api/users/[user_id]
 ```
 #### Python:
 ```python 
