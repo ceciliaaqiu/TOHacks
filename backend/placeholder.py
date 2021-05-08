@@ -26,7 +26,9 @@ class Questions(db.Model):
 
 class UserSchema(ma.Schema):
     class Meta:
-        fields = ("id", "title", "content")
+
+        # the fields that the user has access to
+        fields = ("id", "first_name", "last_name")
         model = UserInfo
 
 user_schema = UserSchema()
@@ -39,6 +41,8 @@ class UserList(Resource):
         return users_schema.dump(users)
 
     def post(self):
+
+        # what the json needs to add a new user from POST
         new_user = UserInfo(
             first_name=request.json['first_name'],
             last_name=request.json['last_name']
