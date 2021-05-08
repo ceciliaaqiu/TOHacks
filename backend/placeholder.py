@@ -10,6 +10,7 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 api = Api(app)
 
+
 class UserInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(200), nullable=False)
@@ -19,17 +20,18 @@ class UserInfo(db.Model):
     def __repr__(self):
         return '<User %r>' % self.id
 
-class Questions(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    question = db.Column(db.String(200), nullable=False)
-
-
 class UserSchema(ma.Schema):
     class Meta:
 
         # the fields that the user has access to
         fields = ("id", "first_name", "last_name")
         model = UserInfo
+
+'''
+class Questions(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.String(200), nullable=False)
+'''
 
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
@@ -44,12 +46,13 @@ class UserList(Resource):
 
         # what the json needs to add a new user from POST
         new_user = UserInfo(
-            first_name=request.json['first_name'],
-            last_name=request.json['last_name']
+            first_name=request.json['first'],
+            last_name=request.json['last']
         )
         db.session.add(new_user)
         db.session.commit()
         return user_schema.dump(new_user)
+
 '''
 class User(Resource):
     def get(self, post_id):
