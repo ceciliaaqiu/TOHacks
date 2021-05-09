@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, TouchableWithoutFeedback } from 'react-native';
 import * as Font from 'expo-font';
 
 
@@ -32,20 +32,20 @@ class IntroScreen extends React.Component {
         const styles = StyleSheet.create({
           container: {
             flex: 1,
-            backgroundColor: '#c3c3c3',
+            backgroundColor: '#ebebeb',
             textAlign: "center",
             // 
             justifyContent: 'center'
           },
           little: {
+			top: 2,
             flexDirection: 'row',
             color: '#2c4829',
-            fontSize: 36,
+            fontSize: 30,
             fontFamily: "Good_Feeling_Sans"
             //textDecorationLine: 'underline'
           },
           steps: {
-			  top: 5,
             color: '#2c4829',
             fontSize: 36,
             fontFamily: "Good_Feeling_Sans"            
@@ -66,7 +66,14 @@ class IntroScreen extends React.Component {
 			alignItems: 'center',
 		  },
 		  button: {
-			  top: 300
+			  top: 300,
+			  backgroundColor: '#134484',
+			  width: 150,
+			  alignItems: 'center',
+			  borderWidth: 1,
+			  borderRadius: 20,
+			  height: 40,
+			  justifyContent: 'center'
 		  }
         });
       return (
@@ -82,11 +89,14 @@ class IntroScreen extends React.Component {
             style={{ width: 200, height: 200 }}
             source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
           />
-          <Text style={styles.phrase}>Insert phrase here oh no oh no oh no oh no oh no oh no</Text>
+          <Text style={styles.phrase}>We have to wake up to the fierce urgency of the now</Text>
 		  <View style={styles.button}>
-			<Button title='Go next'
-			onPress={() => navigation.navigate('Home')}
-			/>
+			
+			<TouchableWithoutFeedback
+			  style={styles.button}
+			  onPress={() => navigation.navigate('Home')}>
+				<Text style={{color: 'white', fontSize: 20, width:150, textAlign:'center'}}>Start</Text>
+			</TouchableWithoutFeedback>
 		  </View>
         </View>
 		</View>
