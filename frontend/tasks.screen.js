@@ -9,13 +9,15 @@ const taskArray = ['Helloooo00o', 'World', 'This', 'Is', 'Task', 'Grid'];
 var count = 0;
 
 const def_icon = require('./assets/house_removebg.png')
+const def_log_icon = require('./assets/paper.png')
+
 const tabs = [
     {
         icon: def_icon,
         title: 'Home'
     },
     {
-        icon: def_icon,
+        icon: def_log_icon,
         title: 'Tasks'
     }
 ]

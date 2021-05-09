@@ -19,10 +19,20 @@ import {
 } from 'react-native-chart-kit';
 
 const quotes = [
-    "im bout to fall asleep", "it may be the end"
+    "The worst impacts of climate change could be irreversible by 2030", 
+	"The 20 warmest years on record have been in the past 22 years",
+	"More than 1 million species are at risk of extinction by climate change",
+	"Climate change is already happening, and it is detrimental to human life, too",
+	"Many leaders still aren not taking it seriously",
+	"The concentration of carbon dioxide (CO2) in our atmosphere, as of May 2020, is the highest it has been in human history.",
+	"Most of the increase in global temperatures since 1950 has been caused by human activity.",
+	"The average temperature of the Earth is determined by the greenhouse effect",
+	"The United States is the second largest contributor to carbon dioxide (CO2) in our atmosphere",
+	"As global temperatures increase, our societies will find it harder to adapt to the changes this brings, and some species are more likely to go extinct"
 ]
 
 const def_icon = require('./assets/house_removebg.png')
+const def_log_icon = require('./assets/paper.png')
 
 const tabs = [
     {
@@ -30,7 +40,7 @@ const tabs = [
         title: 'Home'
     },
     {
-        icon: def_icon,
+        icon: def_log_icon,
         title: 'Tasks'
     }
 ]
@@ -96,7 +106,7 @@ const HomeScreen = ({ navigation }) => {
             </View>
             <View style={styles.centering}>
               <View style={styles.completed_box}> 
-                <Text style={styles.tasks}>Tasks Completed</Text>
+                <Text style={styles.tasks}>Daily Reminders</Text>
               </View>
               
             </View>
@@ -151,14 +161,15 @@ const HomeScreen = ({ navigation }) => {
         justifyContent: 'center'
       },
       facts: {
-        top: -20,
-        color: '#2e1c00',
-        fontSize: 18,
-        fontFamily: "Good_Feeling_Sans",
-        //textDecorationLine: 'underline',
-        //width: 0.85 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
-        textAlign: 'center', 
-        justifyContent: 'center'
+        top: -5,
+		color: '#2e1c00',
+		fontSize: 12,
+		fontFamily: "Good_Feeling_Sans",
+		//textDecorationLine: 'underline',
+		//width: 0.85 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
+		textAlign: 'center', 
+		justifyContent: 'center',
+		padding: 15
       },
       completed_box: {
         borderWidth: 2,
