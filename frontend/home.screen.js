@@ -22,7 +22,7 @@ const quotes = [
 	"im bout to fall asleep", "it may be the end"
 ]
 
-const def_icon = require('./footprints.png')
+const def_icon = require('./assets/house_removebg.png')
 
 const tabs = [
 	{
@@ -41,7 +41,6 @@ const data = {
   datasets: [
     {
       data: [2, 5, 8, 12, 15, 16, 20],
-      strokeWidth: 1, // optional
     },
   ],
 };
@@ -117,7 +116,7 @@ const HomeScreen = ({ navigation }) => {
   const homeProperties = {
 	flex:1,
     title: 'Home',
-    headerTintColor: 'black',
+    headerTintColor: '#261900',
     headerTitleStyle: {
       fontFamily: "sans-serif-light",
       fontWeight: 'bold',
@@ -133,7 +132,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  text: {
 		top: 100,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 24,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
@@ -141,7 +140,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  tasks: {
 		top: 10,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
@@ -154,7 +153,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  facts: {
 		top: -20,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
