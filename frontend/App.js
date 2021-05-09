@@ -11,7 +11,7 @@ import Home from './home.screen';
 const App = () => {
   return (
   <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen
         name="Intro"
         component={Intro.IntroScreen}
