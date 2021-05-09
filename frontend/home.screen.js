@@ -1,4 +1,7 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
+import TabBar from 'react-native-tab-bar-footer';
+
 import { 
   StyleSheet, 
   Text, 
@@ -15,6 +18,16 @@ import {
   StackedBarChart
 } from 'react-native-chart-kit';
 
+const tabs = [
+	{
+		title: 'Home'
+	},
+	{
+		title: 'Tasks'
+	}
+]
+
+
 const data = {
   labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   datasets: [
@@ -25,39 +38,45 @@ const data = {
   ],
 };
 
+
 const HomeScreen = ({ navigation }) => {
     return (
+	
       <View style={homeProperties}>
-	  <View style={styles.content}>
-		<View style={styles.text}>
-		<Text>Carbon Emissions Prevented This Week</Text>
-		</View>
-	  
-        <BarChart
-          data={data}
-          width={Dimensions.get('window').width - 50} // from react-native
-          height={250}
-          yAxisLabel={''}
-		  withInnerLines={false}
-		  yAxisInteval={20}
-          chartConfig={{
-            backgroundColor: '#cabdac',
-            backgroundGradientFrom: '#cabdac',
-            backgroundGradientTo: '#cabdac',
-            decimalPlaces: 2, // optional, defaults to 2dp
-            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-            style: {
-              borderRadius: 16
-            }
-          }}
-          style={{
-			 top: 100,
-            marginVertical: 30,
-            borderRadius: 20,
-			alignItems: 'center',
-          }}
-        />
-      </View>
+	  <ScrollView>
+		  <View style={styles.content}>
+			<View style={styles.text}>
+			<Text>Carbon Emissions Prevented This Week</Text>
+			</View>
+			<BarChart
+			  data={data}
+			  width={Dimensions.get('window').width - 50} // from react-native
+			  height={250}
+			  yAxisLabel={''}
+			  withInnerLines={false}
+			  chartConfig={{
+				backgroundColor: '#ebebeb',
+				backgroundGradientFrom: '#ebebeb',
+				backgroundGradientTo: '#ebebeb',
+				decimalPlaces: 2, // optional, defaults to 2dp
+				color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+				barPercentage: 1,
+				style: {
+				  borderRadius: 16
+				},
+			  }}
+			  style={{
+				 top: 100,
+				marginVertical: 30,
+				borderRadius: 20,
+				alignItems: 'center',
+			  }}
+			/>
+		  </View>
+	  </ScrollView>
+	  <View style={styles.tab}>
+		<TabBar onTabChange={(index) => alert(index)} tabs={tabs} />
+	  </View>
 	  </View>
     );
   };
@@ -72,14 +91,14 @@ const HomeScreen = ({ navigation }) => {
       fontWeight: 'bold',
       alignSelf: 'flex-start'
     },
-	backgroundColor: '#cabdac'
+	backgroundColor: '#ebebeb'
   }
   
   const styles = StyleSheet.create({
 	  text: {
 		top: 100,
 		flexDirection: 'row',
-		color: '#2c4829',
+		color: '#ebebeb',
 		fontSize: 36,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',

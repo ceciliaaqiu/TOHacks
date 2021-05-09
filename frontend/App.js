@@ -16,7 +16,6 @@ const App = () => {
         name="Intro"
         component={Intro.IntroScreen}
         options={Intro.introProperties}
-        
       />
       <Stack.Screen 
         name="Home"
@@ -36,7 +35,7 @@ const Stack = createStackNavigator();
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#cabdac',
+    backgroundColor: '#ebebeb',
     alignItems: 'center',
     justifyContent: 'center',
   },

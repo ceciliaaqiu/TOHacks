@@ -32,7 +32,7 @@ class IntroScreen extends React.Component {
         const styles = StyleSheet.create({
           container: {
             flex: 1,
-            backgroundColor: '#cabdac',
+            backgroundColor: '#c3c3c3',
             textAlign: "center",
             // 
             justifyContent: 'center'
