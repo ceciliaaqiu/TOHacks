@@ -36,7 +36,7 @@ class IntroScreen extends React.Component {
             justifyContent: 'center'
           },
           little: {
-			      top: 2,
+                  top: 2,
             flexDirection: 'row',
             color: '#2c4829',
             fontSize: 30,
@@ -49,12 +49,12 @@ class IntroScreen extends React.Component {
             fontFamily: "Good_Feeling_Sans"            
           },
           phrase: {
-		      	top: 275,
+                top: 275,
             color: '#816e5d',
             fontSize: 19,
             fontFamily: "Good_Feeling_Sans",
             textAlign: "center",
-			      width: 275
+                  width: 275
           },
           quote: {
             top: 285,
@@ -62,17 +62,17 @@ class IntroScreen extends React.Component {
             fontSize: 15,
             fontFamily: "Good_Feeling_Sans",
             textAlign: "center",
-			      width: 275
+                  width: 275
           },
-		      name: {
-			      flexDirection: 'row',
-			      top: 225
-		      },
-		      content: {
-			      top: -100,
-			      alignItems: 'center',
-		      },
-		      button: {
+              name: {
+                  flexDirection: 'row',
+                  top: 225
+              },
+              content: {
+                  top: -100,
+                  alignItems: 'center',
+              },
+              button: {
             top: 320,
             backgroundColor: '#165915',
             width: 150,
@@ -85,7 +85,7 @@ class IntroScreen extends React.Component {
         });
       return (
         <View style={styles.container}> 
-		      <View style={styles.content}>
+          <View style={styles.content}>
             <View style={styles.name}>
               <Text style={styles.little}>little</Text>
               <Text style={styles.steps}>steps</Text>
@@ -96,23 +96,23 @@ class IntroScreen extends React.Component {
             />
             <Text style={styles.phrase}>"We have to wake up to the fierce urgency of the now."</Text>
             <Text style={styles.quote}>   -Jim Yong Kim, President, The World Bank</Text>
-		        <View style={styles.button}>
-			        <TouchableWithoutFeedback
-			          style={styles.button}
-			          onPress={() => navigation.navigate('Home')}>
-                <Text style={{
-                  color: '#f9f8f8',
-                  fontSize: 22, 
-                  width:150, 
-				  height:55,
-				  borderWidth:0,
-                  textAlign:'center',
-				  textAlignVertical: 'center',
-                  fontFamily: "Good_Feeling_Sans" }}>Start</Text>
-		    	    </TouchableWithoutFeedback>
-		        </View>
+                <View style={styles.button}>
+                    <TouchableWithoutFeedback
+                      style={styles.button}
+                      onPress={() => navigation.navigate('Home')}>
+                        <Text style={{
+                          color: '#f9f8f8',
+                          fontSize: 22, 
+                          width:150, 
+                          height:55,
+                          borderWidth:0,
+                          textAlign:'center',
+                          textAlignVertical: 'center',
+                          fontFamily: "Good_Feeling_Sans" }}>Start</Text>
+                    </TouchableWithoutFeedback>
+                </View>
+            </View>
           </View>
-		    </View>
         );
       } else {
         return null;
