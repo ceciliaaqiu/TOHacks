@@ -18,6 +18,10 @@ import {
   StackedBarChart
 } from 'react-native-chart-kit';
 
+const quotes = [
+	"im bout to fall asleep", "it may be the end"
+]
+
 const def_icon = require('./home.png')
 
 const tabs = [
@@ -27,7 +31,7 @@ const tabs = [
 	},
 	{
 		icon: def_icon,
-		title: 'Tasks'
+		title: 'Intro'
 	}
 ]
 
@@ -46,16 +50,19 @@ function getTitle(index) {
 	return tabs[index]['title'];
 };
 
+function getNewFact() {
+	return quotes[Math.floor(Math.random() * quotes.length)];
+};
 
 const HomeScreen = ({ navigation }) => {
     return (
-	
       <View style={homeProperties}>
 	  <ScrollView>
 		  <View style={styles.content}>
 			<View style={styles.text}>
-			<Text>CO2 Emissions Prevented This Week</Text>
+				<Text>CO2 Emissions Prevented This Week</Text>
 			</View>
+			
 			<BarChart
 			  data={data}
 			  width={Dimensions.get('window').width - 0.1 * Dimensions.get('window').width} // from react-native
@@ -73,7 +80,7 @@ const HomeScreen = ({ navigation }) => {
 				fillShadowGradient: '#000000',
 				decimalPlaces: 0, // optional, defaults to 2dp
 				color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-				barPercentage: 1,
+				barPercentage: 0.65,
 				style: {
 				  borderRadius: 16
 				},
@@ -82,22 +89,28 @@ const HomeScreen = ({ navigation }) => {
 				 top: 100,
 				marginVertical: 30,
 				borderRadius: 20,
-				marginRight: 0.25 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
+				marginRight: 0.15 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
 				alignItems: 'center',
 			  }}
 			/>
-		  </View>
+			
+			
+			</View>
 	  </ScrollView>
+	  <View style={styles.facts}>
+				<Text>{getNewFact()}</Text>
+			</View>
 	  <View style={styles.tab}>
 		<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
 	  </View>
+	  
 	  </View>
     );
   };
 
 
   const homeProperties = {
-	  flex:1,
+	flex:1,
     title: 'Home',
     headerTintColor: 'black',
     headerTitleStyle: {
@@ -121,6 +134,11 @@ const HomeScreen = ({ navigation }) => {
 	  content: {
 		top: -50,
 		textAlign: 'center',
+		justifyContent: 'center'
+	  },
+	  facts: {
+		  top: -20,
+		flexDirection: 'row',
 		justifyContent: 'center'
 	  }
   });
