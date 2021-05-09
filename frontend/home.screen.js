@@ -18,11 +18,19 @@ import {
   StackedBarChart
 } from 'react-native-chart-kit';
 
+const iconNames = [
+	{image: require('./home.png')}
+]
+
 const tabs = [
 	{
+		icon: iconNames[0],
+		activeIcon: iconNames[0],
 		title: 'Home'
 	},
 	{
+		icon: iconNames[0],
+		activeIcon: iconNames[0],
 		title: 'Tasks'
 	}
 ]
@@ -38,6 +46,10 @@ const data = {
   ],
 };
 
+function getTitle(index) {
+	return tabs[index]['title'];
+};
+
 
 const HomeScreen = ({ navigation }) => {
     return (
@@ -46,19 +58,24 @@ const HomeScreen = ({ navigation }) => {
 	  <ScrollView>
 		  <View style={styles.content}>
 			<View style={styles.text}>
-			<Text>Carbon Emissions Prevented This Week</Text>
+			<Text>CO2 Emissions Prevented This Week</Text>
 			</View>
 			<BarChart
 			  data={data}
-			  width={Dimensions.get('window').width - 50} // from react-native
+			  width={Dimensions.get('window').width - 0.1 * Dimensions.get('window').width} // from react-native
 			  height={250}
 			  yAxisLabel={''}
 			  withInnerLines={false}
+			  showValuesOnTopOfBars={true}
+			  withHorizontalLabels={false}
+			  showBarTops={false}
 			  chartConfig={{
 				backgroundColor: '#ebebeb',
 				backgroundGradientFrom: '#ebebeb',
 				backgroundGradientTo: '#ebebeb',
-				decimalPlaces: 2, // optional, defaults to 2dp
+				fillShadowGradientOpacity: 0.3,
+				fillShadowGradient: '#000000',
+				decimalPlaces: 0, // optional, defaults to 2dp
 				color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
 				barPercentage: 1,
 				style: {
@@ -69,13 +86,14 @@ const HomeScreen = ({ navigation }) => {
 				 top: 100,
 				marginVertical: 30,
 				borderRadius: 20,
+				marginRight: 0.25 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
 				alignItems: 'center',
 			  }}
 			/>
 		  </View>
 	  </ScrollView>
 	  <View style={styles.tab}>
-		<TabBar onTabChange={(index) => alert(index)} tabs={tabs} />
+		<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
 	  </View>
 	  </View>
     );
