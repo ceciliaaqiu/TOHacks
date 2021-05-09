@@ -6,6 +6,8 @@ import * as Font from 'expo-font';
 const littleWord = 'little';
 const stepsWord = 'steps';
 
+const logo = require('./footprints.png');
+
 class IntroScreen extends React.Component {
     state = {
       fontsLoaded: false,
@@ -67,7 +69,7 @@ class IntroScreen extends React.Component {
 		  },
 		  button: {
 			  top: 300,
-			  backgroundColor: '#134484',
+			  backgroundColor: '#165915',
 			  width: 150,
 			  alignItems: 'center',
 			  borderWidth: 1,
@@ -86,8 +88,8 @@ class IntroScreen extends React.Component {
             <Text style={styles.steps}>{stepsWord}</Text>
           </View>
           <Image
-            style={{ width: 200, height: 200 }}
-            source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
+            style={{ width: 200, height: 200}}
+            source={logo}
           />
           <Text style={styles.phrase}>We have to wake up to the fierce urgency of the now</Text>
 		  <View style={styles.button}>
