@@ -2,11 +2,23 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
 import * as Font from 'expo-font';
 import { Card, RadioButton } from 'react-native-paper';
+import TabBar from 'react-native-tab-bar-footer';
 
 
 const taskArray = ['Helloooo00o', 'World', 'This', 'Is', 'Task', 'Grid'];
 var count = 0;
 
+const def_icon = require('./assets/house_removebg.png')
+const tabs = [
+    {
+        icon: def_icon,
+        title: 'Home'
+    },
+    {
+        icon: def_icon,
+        title: 'Tasks'
+    }
+]
 var data = [
 	{
 		'category': 'Commute Method',
@@ -34,7 +46,9 @@ var response = {
 	'meat_consumption': '',
 }
 
-
+function getTitle(index) {
+			return tabs[index]['title'];
+	};
 class TasksScreen extends React.Component {
 	async _handleSubmit(){
 		console.log('submitting: ', response);
@@ -44,6 +58,7 @@ class TasksScreen extends React.Component {
 	}
 
 		render(){
+			const {navigation} = this.props;
 		    return (
 		        <View style={styles.container}>
 			    			<Text style={styles.title}>Daily Log</Text>
@@ -56,6 +71,9 @@ class TasksScreen extends React.Component {
 									style={styles.submit}>
 									<Text style={styles.submitText}>Submit</Text>
 								</TouchableHighlight>
+								<View style={styles.tab}>
+									<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
+								</View>
 		        </View>
 		    )
 		}
@@ -163,7 +181,12 @@ const styles = StyleSheet.create({
 		taskText: {
 			color: "white",
 			fontSize: 20,
-		}
+		},
+		tab:{
+			marginBottom: -35,
+			marginLeft: -35,
+			marginRight: -35,
+		},
 });
 const tasksProperties = {};
 
