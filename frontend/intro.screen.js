@@ -64,15 +64,15 @@ class IntroScreen extends React.Component {
             textAlign: "center",
                   width: 275
           },
-              name: {
-                  flexDirection: 'row',
-                  top: 225
-              },
-              content: {
-                  top: -100,
-                  alignItems: 'center',
-              },
-              button: {
+          name: {
+              flexDirection: 'row',
+              top: 225
+          },
+          content: {
+              top: -100,
+              alignItems: 'center',
+          },
+          button: {
             top: 320,
             backgroundColor: '#165915',
             width: 150,
