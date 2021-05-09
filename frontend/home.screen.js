@@ -23,7 +23,7 @@ const quotes = [
 	"The 20 warmest years on record have been in the past 22 years",
 	"More than 1 million species are at risk of extinction by climate change",
 	"Climate change is already happening, and it is detrimental to human life, too",
-	"Many leaders still aren not taking it seriously",
+	"Many leaders still are not taking it seriously",
 	"The concentration of carbon dioxide (CO2) in our atmosphere, as of May 2020, is the highest it has been in human history.",
 	"Most of the increase in global temperatures since 1950 has been caused by human activity.",
 	"The average temperature of the Earth is determined by the greenhouse effect",
@@ -115,7 +115,7 @@ const HomeScreen = ({ navigation }) => {
             <Text style={styles.facts}>{getNewFact()}</Text>
           </View>
           <View style={styles.tab}>
-            <TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
+            <TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} initialIndex={0} />
           </View>
       </View>
     );

@@ -63,19 +63,19 @@ class TasksScreen extends React.Component {
 			const {navigation} = this.props;
 		    return (
 		        <View style={styles.container}>
-			    			<Text style={styles.title}>Daily Log</Text>
-								<ScrollView style={styles.scrollView}>
-									<CategoryList categories={data}/>
-								</ScrollView>
-								<TouchableHighlight
-									title="Submit"
-									onPress={() => {this._handleSubmit().then(() => this._handleSubmitSuccess())}}
-									style={styles.submit}>
-									<Text style={styles.submitText}>Submit</Text>
-								</TouchableHighlight>
-								<View style={styles.tab}>
-									<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
-								</View>
+					<Text style={styles.title}>Daily Log</Text>
+						<ScrollView style={styles.scrollView}>
+							<CategoryList categories={data}/>
+						</ScrollView>
+						<TouchableHighlight
+							title="Submit"
+							onPress={() => {this._handleSubmit().then(() => this._handleSubmitSuccess())}}
+							style={styles.submit}>
+							<Text style={styles.submitText}>Submit</Text>
+						</TouchableHighlight>
+						<View style={styles.tab}>
+							<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} initialIndex={1}/>
+						</View>
 		        </View>
 		    )
 		}
