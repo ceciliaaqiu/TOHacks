@@ -104,7 +104,10 @@ class IntroScreen extends React.Component {
                   color: '#f9f8f8',
                   fontSize: 22, 
                   width:150, 
-                  textAlign:'center', 
+				  height:55,
+				  borderWidth:0,
+                  textAlign:'center',
+				  textAlignVertical: 'center',
                   fontFamily: "Good_Feeling_Sans" }}>Start</Text>
 		    	    </TouchableWithoutFeedback>
 		        </View>
