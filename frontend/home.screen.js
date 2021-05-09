@@ -59,8 +59,8 @@ const HomeScreen = ({ navigation }) => {
       <View style={homeProperties}>
 	  <ScrollView>
 		  <View style={styles.content}>
-			<View style={styles.text}>
-				<Text>CO2 Emissions Prevented This Week</Text>
+			<View>
+				<Text style={styles.text}>CO2 Emissions Prevented</Text>
 			</View>
 			
 			<BarChart
@@ -97,11 +97,11 @@ const HomeScreen = ({ navigation }) => {
 			
 			</View>
 	  </ScrollView>
-	  <View style={styles.facts}>
-				<Text>{getNewFact()}</Text>
-			</View>
+	  <View>
+			<Text style={styles.facts}>{getNewFact()}</Text>
+		</View>
 	  <View style={styles.tab}>
-		<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
+			<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
 	  </View>
 	  
 	  </View>
@@ -124,12 +124,11 @@ const HomeScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
 	  text: {
 		top: 100,
-		flexDirection: 'row',
-		color: '#ebebeb',
-		fontSize: 36,
+		color: 'black',
+		fontSize: 24,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
-		justifyContent: 'center'
+		textAlign: 'center'
 	  },
 	  content: {
 		top: -50,
@@ -137,9 +136,12 @@ const HomeScreen = ({ navigation }) => {
 		justifyContent: 'center'
 	  },
 	  facts: {
-		  top: -20,
-		flexDirection: 'row',
-		justifyContent: 'center'
+		top: -20,
+		color: 'black',
+		fontSize: 18,
+		fontFamily: "Good_Feeling_Sans",
+		//textDecorationLine: 'underline',
+		textAlign: 'center'
 	  }
   });
 
