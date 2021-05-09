@@ -34,31 +34,45 @@ class IntroScreen extends React.Component {
             flex: 1,
             backgroundColor: '#cabdac',
             textAlign: "center",
-            alignItems: 'center',
+            // 
             justifyContent: 'center'
           },
           little: {
             flexDirection: 'row',
             color: '#2c4829',
-            fontSize: 35,
+            fontSize: 36,
             fontFamily: "Good_Feeling_Sans"
             //textDecorationLine: 'underline'
           },
           steps: {
+			  top: 5,
             color: '#2c4829',
-            fontSize: 35,
-            fontFamily: "Good_Feeling_Sans"
-            
+            fontSize: 36,
+            fontFamily: "Good_Feeling_Sans"            
           },
           phrase: {
+			top: 275,
             color: '#816e5d',
             fontSize: 20,
-            textAlign: "center"
-          }
+            textAlign: "center",
+			width: 275
+          },
+		  name: {
+			flexDirection: 'row',
+			top: 225
+		  },
+		  content: {
+			top: -100,
+			alignItems: 'center',
+		  },
+		  button: {
+			  top: 300
+		  }
         });
       return (
         <View style={styles.container}> 
-          <View style={{flexDirection: 'row'}}>
+		<View style={styles.content}>
+          <View style={styles.name}>
             <Text style={styles.little}>
               {littleWord}
             </Text>
@@ -69,8 +83,14 @@ class IntroScreen extends React.Component {
             source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
           />
           <Text style={styles.phrase}>Insert phrase here oh no oh no oh no oh no oh no oh no</Text>
+		  <View style={styles.button}>
+			<Button title='Go next'
+			onPress={() => navigation.navigate('Home')}
+			/>
+		  </View>
         </View>
-
+		</View>
+		
         );
       } else {
         return null;
