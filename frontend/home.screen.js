@@ -22,7 +22,7 @@ const quotes = [
 	"im bout to fall asleep", "it may be the end"
 ]
 
-const def_icon = require('./footprints.png')
+const def_icon = require('./assets/house_removebg.png')
 
 const tabs = [
 	{
@@ -41,7 +41,6 @@ const data = {
   datasets: [
     {
       data: [2, 5, 8, 12, 15, 16, 20],
-      strokeWidth: 1, // optional
     },
   ],
 };
@@ -117,7 +116,7 @@ const HomeScreen = ({ navigation }) => {
   const homeProperties = {
 	flex:1,
     title: 'Home',
-    headerTintColor: '#2e1c00',
+    headerTintColor: '#261900',
     headerTitleStyle: {
       fontFamily: "sans-serif-light",
       fontWeight: 'bold',

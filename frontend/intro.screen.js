@@ -3,16 +3,12 @@ import { StyleSheet, Text, View, Button, Image, TouchableWithoutFeedback } from 
 import * as Font from 'expo-font';
 
 
-const littleWord = 'little';
-const stepsWord = 'steps';
-
-const logo = require('./footprints.png');
+const logo = require('./assets/final3_removebg.png');
 
 class IntroScreen extends React.Component {
     state = {
       fontsLoaded: false,
     };
-
     async loadFonts() {
       await Font.loadAsync({
         // Any string can be used as the fontFamily name. Here we use an object to provide more control
@@ -40,7 +36,7 @@ class IntroScreen extends React.Component {
             justifyContent: 'center'
           },
           little: {
-			top: 2,
+			      top: 2,
             flexDirection: 'row',
             color: '#2c4829',
             fontSize: 30,
@@ -48,61 +44,72 @@ class IntroScreen extends React.Component {
             //textDecorationLine: 'underline'
           },
           steps: {
-            color: '#2c4829',
+            color: '#2e1c00',
             fontSize: 36,
             fontFamily: "Good_Feeling_Sans"            
           },
           phrase: {
-			top: 275,
+		      	top: 275,
             color: '#816e5d',
-            fontSize: 20,
+            fontSize: 19,
+            fontFamily: "Good_Feeling_Sans",
             textAlign: "center",
-			width: 275
+			      width: 275
           },
-		  name: {
-			flexDirection: 'row',
-			top: 225
-		  },
-		  content: {
-			top: -100,
-			alignItems: 'center',
-		  },
-		  button: {
-			  top: 300,
-			  backgroundColor: '#165915',
-			  width: 150,
-			  alignItems: 'center',
-			  borderWidth: 1,
-			  borderRadius: 20,
-			  height: 40,
-			  justifyContent: 'center'
-		  }
+          quote: {
+            top: 285,
+            color: '#816e5d',
+            fontSize: 15,
+            fontFamily: "Good_Feeling_Sans",
+            textAlign: "center",
+			      width: 275
+          },
+		      name: {
+			      flexDirection: 'row',
+			      top: 225
+		      },
+		      content: {
+			      top: -100,
+			      alignItems: 'center',
+		      },
+		      button: {
+            top: 320,
+            backgroundColor: '#165915',
+            width: 150,
+            alignItems: 'center',
+            borderWidth: 0.5,
+            borderRadius: 30,
+            height: 55,
+            justifyContent: 'center'
+          }
         });
       return (
         <View style={styles.container}> 
-		<View style={styles.content}>
-          <View style={styles.name}>
-            <Text style={styles.little}>
-              {littleWord}
-            </Text>
-            <Text style={styles.steps}>{stepsWord}</Text>
-          </View>
-          <Image
+		      <View style={styles.content}>
+            <View style={styles.name}>
+              <Text style={styles.little}>little</Text>
+              <Text style={styles.steps}>steps</Text>
+            </View>
+            <Image
             style={{ width: 200, height: 200}}
             source={logo}
-          />
-          <Text style={styles.phrase}>We have to wake up to the fierce urgency of the now</Text>
-		  <View style={styles.button}>
-			
-			<TouchableWithoutFeedback
-			  style={styles.button}
-			  onPress={() => navigation.navigate('Home')}>
-				<Text style={{color: 'white', fontSize: 20, width:150, textAlign:'center'}}>Start</Text>
-			</TouchableWithoutFeedback>
-		  </View>
-        </View>
-		</View>
-		
+            />
+            <Text style={styles.phrase}>"We have to wake up to the fierce urgency of the now."</Text>
+            <Text style={styles.quote}>   -Jim Yong Kim, President, The World Bank</Text>
+		        <View style={styles.button}>
+			        <TouchableWithoutFeedback
+			          style={styles.button}
+			          onPress={() => navigation.navigate('Home')}>
+                <Text style={{
+                  color: '#f9f8f8',
+                  fontSize: 22, 
+                  width:150, 
+                  textAlign:'center', 
+                  fontFamily: "Good_Feeling_Sans" }}>Start</Text>
+		    	    </TouchableWithoutFeedback>
+		        </View>
+          </View>
+		    </View>
         );
       } else {
         return null;
