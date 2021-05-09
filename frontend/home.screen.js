@@ -117,7 +117,7 @@ const HomeScreen = ({ navigation }) => {
   const homeProperties = {
 	flex:1,
     title: 'Home',
-    headerTintColor: 'black',
+    headerTintColor: '#2e1c00',
     headerTitleStyle: {
       fontFamily: "sans-serif-light",
       fontWeight: 'bold',
@@ -133,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  text: {
 		top: 100,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 24,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
@@ -141,7 +141,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  tasks: {
 		top: 10,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
@@ -154,7 +154,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  facts: {
 		top: -20,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
