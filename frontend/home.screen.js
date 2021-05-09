@@ -59,8 +59,8 @@ const HomeScreen = ({ navigation }) => {
       <View style={homeProperties}>
 	  <ScrollView>
 		  <View style={styles.content}>
-			<View>
-				<Text style={styles.text}>CO2 Emissions Prevented</Text>
+		    <View>
+			  <Text style={styles.text}>CO2 Emissions Prevented</Text>
 			</View>
 			
 			<BarChart
@@ -89,21 +89,26 @@ const HomeScreen = ({ navigation }) => {
 				 top: 100,
 				marginVertical: 30,
 				borderRadius: 20,
+				marginBottom: 50,
 				marginRight: 0.15 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
 				alignItems: 'center',
 			  }}
 			/>
-			
-			
 			</View>
+		<View style={styles.centering}>
+		  <View style={styles.completed_box}> 
+			<Text style={styles.tasks}>Tasks Completed</Text>
+		  </View>
+		  
+		  
+		 </View>
 	  </ScrollView>
 	  <View>
-			<Text style={styles.facts}>{getNewFact()}</Text>
-		</View>
-	  <View style={styles.tab}>
-			<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
+		<Text style={styles.facts}>{getNewFact()}</Text>
 	  </View>
-	  
+	  <View style={styles.tab}>
+		<TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
+	  </View>
 	  </View>
     );
   };
@@ -118,14 +123,26 @@ const HomeScreen = ({ navigation }) => {
       fontWeight: 'bold',
       alignSelf: 'flex-start'
     },
-	backgroundColor: '#ebebeb'
+	backgroundColor: '#ebebeb',
+	justifyContent: 'center'
   }
   
   const styles = StyleSheet.create({
+	  centering: {
+		alignItems: 'center'
+	  },
 	  text: {
 		top: 100,
 		color: 'black',
 		fontSize: 24,
+		fontFamily: "Good_Feeling_Sans",
+		//textDecorationLine: 'underline',
+		textAlign: 'center'
+	  },
+	  tasks: {
+		top: 10,
+		color: 'black',
+		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
 		textAlign: 'center'
@@ -141,6 +158,15 @@ const HomeScreen = ({ navigation }) => {
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
+		//width: 0.85 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
+		textAlign: 'center', 
+		justifyContent: 'center'
+	  },
+	  completed_box: {
+		borderWidth: 2,
+		height: Dimensions.get('window').height - 470,
+		width: 0.85 * (Dimensions.get('window').width - 0.1 * Dimensions.get('window').width),
+		borderRadius: 20,
 		textAlign: 'center'
 	  }
   });
