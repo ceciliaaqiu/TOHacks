@@ -18,19 +18,15 @@ import {
   StackedBarChart
 } from 'react-native-chart-kit';
 
-const iconNames = [
-	{image: require('./home.png')}
-]
+const def_icon = require('./home.png')
 
 const tabs = [
 	{
-		icon: iconNames[0],
-		activeIcon: iconNames[0],
+		icon: def_icon,
 		title: 'Home'
 	},
 	{
-		icon: iconNames[0],
-		activeIcon: iconNames[0],
+		icon: def_icon,
 		title: 'Tasks'
 	}
 ]
