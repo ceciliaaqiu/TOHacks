@@ -47,13 +47,18 @@ def create_user():
 
         Win10 64bit needs a '\' after " within the {}
     '''
-    if not request.json or not 'first' in request.json:
+    if not request.json or 'first' not in request.json:
         abort(400)
 
     user = {
         'first': request.json['first'],
         'last': request.json['last'],
-        'date_joined': str(datetime.utcnow())
+        'date_joined': str(datetime.utcnow()),
+        'daily_score': 0,
+        'commute_ans': 0,
+        'food_ans': 0,
+        'waste_ans': 0,
+        'bonus': 0
     }
     if users:
         user['id'] = users[-1]['id'] + 1
@@ -61,8 +66,7 @@ def create_user():
         user['id'] = 0
     users.append(user)
 
-    with open("data.json", "w") as write_file:
-        json.dump(users, write_file, indent=4)
+    json.dump(users, storage_file, indent=4)
 
     return jsonify({'user': user}), 201
 
@@ -82,15 +86,27 @@ def update_user(user_id):
         abort(404)
     if not request.json:
         abort(400)
-    if 'title' in request.json and type(request.json['title']) != str:
+    if 'first' in request.json and type(request.json['first']) != str:
         abort(400)
-    if 'description' in request.json and type(request.json['description']) is not str:
+    if 'last' in request.json and type(request.json['last']) is not str:
         abort(400)
-    if 'done' in request.json and type(request.json['done']) is not bool:
+    if 'daily_score' in request.json and type(request.json['daily_score']) is not int:
         abort(400)
-    user[0]['title'] = request.json.get('title', user[0]['title'])
-    user[0]['description'] = request.json.get('description', user[0]['description'])
-    user[0]['done'] = request.json.get('done', user[0]['done'])
+    if 'commute_ans' in request.json and type(request.json['commute_ans']) is not int:
+        abort(400)
+    if 'food_ans' in request.json and type(request.json['food_ans']) is not int:
+        abort(400)
+    if 'waste_ans' in request.json and type(request.json['waste_ans']) is not int:
+        abort(400)
+    if 'bonus' in request.json and type(request.json['bonus']) is not int:
+        abort(400)
+    user[0]['first'] = request.json.get('first', user[0]['first'])
+    user[0]['last'] = request.json.get('last', user[0]['last'])
+    user[0]['daily_score'] = request.json.get('daily_score', user[0]['daily_score'])
+    user[0]['commute_ans'] = request.json.get('commute_ans', user[0]['commute_ans'])
+    user[0]['food_ans'] = request.json.get('food_ans', user[0]['food_ans'])
+    user[0]['waste_ans'] = request.json.get('waste_ans', user[0]['waste_ans'])
+    user[0]['bonus'] = request.json.get('bonus', user[0]['bonus'])
     json.dump(users, storage_file, indent=4)
     return jsonify({'task': user[0]})
 

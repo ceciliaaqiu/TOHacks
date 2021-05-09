@@ -1,5 +1,7 @@
 This is a simple REST API for storing and retrieving user data.
 
+File must be modified to work with other fields.
+
 # Usage
 
 ## Adding a user:
