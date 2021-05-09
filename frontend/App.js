@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Intro from './intro.screen';
 import Home from './home.screen';
-//import Tasks from './tasks.screen';
+import Tasks from './tasks.screen';
 import { startClock } from 'react-native-reanimated';
 
 const App = () => {
@@ -24,11 +24,11 @@ const App = () => {
         component={Home.HomeScreen} 
         options={Home.homeProperties}
       />
-      {/*<Stack.Screen
+      <Stack.Screen
         name= "Tasks"
         component={Tasks.TasksScreen}
         options={Tasks.tasksProperties}
-      />*/}
+      />
     </Stack.Navigator>
   </NavigationContainer>);
 };

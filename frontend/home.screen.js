@@ -31,7 +31,7 @@ const tabs = [
     },
     {
         icon: def_icon,
-        title: 'Intro'
+        title: 'Tasks'
     }
 ]
 
@@ -105,7 +105,8 @@ const HomeScreen = ({ navigation }) => {
             <Text style={styles.facts}>{getNewFact()}</Text>
           </View>
           <View style={styles.tab}>
-            <TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} />
+            <TabBar onTabChange={(index) => navigation.navigate(getTitle(index))} tabs={tabs} slideBounciness={0} 
+			initialIndex={0} animationDuration={0}/>
           </View>
       </View>
     );
