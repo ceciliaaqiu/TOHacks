@@ -22,7 +22,7 @@ const quotes = [
 	"im bout to fall asleep", "it may be the end"
 ]
 
-const def_icon = require('./home.png')
+const def_icon = require('./footprints.png')
 
 const tabs = [
 	{
@@ -40,7 +40,7 @@ const data = {
   labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   datasets: [
     {
-      data: [20, 45, 28, 80, 99, 43, 88],
+      data: [2, 5, 8, 12, 15, 16, 20],
       strokeWidth: 1, // optional
     },
   ],
@@ -78,7 +78,7 @@ const HomeScreen = ({ navigation }) => {
 				backgroundGradientTo: '#ebebeb',
 				fillShadowGradientOpacity: 0.3,
 				fillShadowGradient: '#000000',
-				decimalPlaces: 0, // optional, defaults to 2dp
+				decimalPlaces: 0,
 				color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
 				barPercentage: 0.65,
 				style: {
@@ -117,7 +117,7 @@ const HomeScreen = ({ navigation }) => {
   const homeProperties = {
 	flex:1,
     title: 'Home',
-    headerTintColor: 'black',
+    headerTintColor: '#2e1c00',
     headerTitleStyle: {
       fontFamily: "sans-serif-light",
       fontWeight: 'bold',
@@ -133,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  text: {
 		top: 100,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 24,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
@@ -141,7 +141,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  tasks: {
 		top: 10,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
@@ -154,7 +154,7 @@ const HomeScreen = ({ navigation }) => {
 	  },
 	  facts: {
 		top: -20,
-		color: 'black',
+		color: '#2e1c00',
 		fontSize: 18,
 		fontFamily: "Good_Feeling_Sans",
 		//textDecorationLine: 'underline',
