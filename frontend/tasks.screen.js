@@ -35,7 +35,7 @@ var data = [
 		'opts': ['No Change', 'Alternative Meat Prod.', 'Vegan/Vegetarian'],
 	},
 	{
-		'category': 'Plastic Waste Produced',
+		'category': 'Plastic Use',
 		'categoryId': 'plastic_waste',
 		'selectedOp': 'No Change',
 		'opts': ['No Change', 'Reusable Bag', 'Reusable Bottle'],
